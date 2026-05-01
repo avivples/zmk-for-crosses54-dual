@@ -83,18 +83,24 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        // Hold both thumb layer-taps NAV (left) and SYMBOL (right) to reach
-        // ADJUST. Replaces the old &mo ADJUST on the right thumb so that
-        // position can host MOUSE for trackball use.
-        nav_symbol_adjust {
-            if-layers = <NAV SYMBOL>;
-            then-layer = <ADJUST>;
-        };
         // While MAC mode is toggled on, holding NAV brings up the Mac-flavored
         // overlay that swaps Ctrl-prefixed clipboard/word ops to Cmd/Opt.
         mac_nav_overlay {
             if-layers = <NAV MAC>;
             then-layer = <MAC_NAV>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        // Z + / (bottom-row diagonal corners) toggles MAC mode. Hard to hit
+        // by accident, easy on purpose. Restricted to alpha layers so it
+        // doesn't fire when Z/Slash positions hold something else.
+        combo_mac_toggle {
+            timeout-ms = <50>;
+            key-positions = <37 46>;
+            bindings = <&tog MAC>;
+            layers = <CLMK QWERTY>;
         };
     };
 
@@ -107,10 +113,10 @@
             display-name = "Clmk";
             bindings = <
                 &kp GRAVE      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7          &kp N8        &kp N9       &kp N0         &kp EQUAL
-                ___            &kp Q         &kp W         &kp F         &kp P           &kp B         &kp J        &kp L           &kp U         &kp Y        &kp SEMI       ___
-                &kp ESC        &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T    &kp G         &kp M        &hmr RSHFT N    &hmr RCTRL E  &hmr RALT I  &hmr RGUI O    &kp SQT
+                &kp ESC        &kp Q         &kp W         &kp F         &kp P           &kp B         &kp J        &kp L           &kp U         &kp Y        &kp SEMI       ___
+                &magic_shift LSHFT LSHFT &hml LGUI A &hml LALT R &hml LCTRL S &hml LSHFT T &kp G        &kp M        &hmr RSHFT N    &hmr RCTRL E  &hmr RALT I  &hmr RGUI O    &kp SQT
                 &caps_word     &kp Z         &kp X         &kp C         &kp D           &kp V         &kp K        &kp H           &kp COMMA     &kp DOT      &kp FSLH       &kp DEL
-                                                            &magic_shift LSHFT LSHFT     &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo MOUSE
+                                                            &mo ADJUST                  &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo MOUSE
             >;
         };
 
@@ -118,10 +124,10 @@
             display-name = "Qwerty";
             bindings = <
                 &kp GRAVE      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7          &kp N8        &kp N9       &kp N0         &kp EQUAL
-                ___            &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U           &kp I         &kp O        &kp P          ___
-                &kp ESC        &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F    &kp G         &kp H        &hmr RSHFT J    &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI &kp SQT
+                &kp ESC        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U           &kp I         &kp O        &kp P          ___
+                &magic_shift LSHFT LSHFT &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H        &hmr RSHFT J    &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI &kp SQT
                 &caps_word     &kp Z         &kp X         &kp C         &kp V           &kp B         &kp N        &kp M           &kp COMMA     &kp DOT      &kp FSLH       &kp DEL
-                                                            &magic_shift LSHFT LSHFT     &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo MOUSE
+                                                            &mo ADJUST                  &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo MOUSE
             >;
         };
 
@@ -132,11 +138,11 @@
             // Arrows on row 3 (home row) so they sit under your right hand.
             // Row 2 right is the wider nav cluster (Home/PgDn/PgUp/End).
             bindings = <
-                ___            ___           ___           ___           ___             ___           &kp LA(LEFT) &kp LA(RIGHT)   &kp LC(T)     &kp LC(W)    &kp LC(LS(T))  &kp INS
+                ___            ___           ___           ___           ___             ___           &kp LA(LEFT) &kp LA(RIGHT)   &kp LC(N)     &kp LC(LS(N)) &kp LC(TAB)   &kp INS
                 &kp LA(TAB)    &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT       ___           &kp F5       &kp HOME        &kp PG_DN     &kp PG_UP    &kp END        &kp K_CMENU
                 ___            &kp LC(LEFT)  &kp LC(RIGHT) &kp LC(BSPC)  &kp LC(DEL)     ___           ___          &kp LEFT        &kp DOWN      &kp UP       &kp RIGHT      &kp DEL
-                ___            &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &kp LC(Y)     &kp LC(A)    &kp LC(S)       &kp LC(H)     &kp LC(FSLH) &kp LS(TAB)    ___
-                                                            ___                       ___           ___          ___             ___           ___
+                ___            &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &kp LC(Y)     &kp LC(A)    &kp LC(S)       &kp LC(F)     &kp LC(FSLH) &kp LS(TAB)    ___
+                                                            ___                       ___           ___          &kp LC(T)       &kp LC(LS(T)) &kp LC(W)
             >;
         };
 
@@ -146,11 +152,11 @@
             // Overrides only the keys whose modifier differs on macOS.
             // Cmd+Shift+Z is Mac redo. Word motion uses Opt instead of Ctrl.
             bindings = <
-                ___            ___           ___           ___           ___             ___           &kp LG(LBKT) &kp LG(RBKT)    &kp LG(T)     &kp LG(W)    &kp LG(LS(T))  ___
+                ___            ___           ___           ___           ___             ___           &kp LG(LBKT) &kp LG(RBKT)    &kp LG(N)     &kp LG(LS(N)) &kp LC(TAB)   ___
                 &kp LG(TAB)    ___           ___           ___           ___             ___           &kp LG(R)    ___             ___           ___          ___            ___
                 ___            &kp LA(LEFT)  &kp LA(RIGHT) &kp LA(BSPC)  &kp LA(DEL)     ___           ___          ___             ___           ___          ___            ___
-                ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(A)    &kp LG(S)       &kp LG(H)     &kp LG(FSLH) ___            ___
-                                                            ___                       ___           ___          ___             ___           ___
+                ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(A)    &kp LG(S)       &kp LG(F)     &kp LG(FSLH) ___            ___
+                                                            ___                       ___           ___          &kp LG(T)       &kp LG(LS(T)) &kp LG(W)
             >;
         };
 

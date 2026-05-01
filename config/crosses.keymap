@@ -132,10 +132,10 @@
             // Arrows on row 3 (home row) so they sit under your right hand.
             // Row 2 right is the wider nav cluster (Home/PgDn/PgUp/End).
             bindings = <
-                ___            &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &kp LC(Y)     &kp LA(LEFT) &kp LA(RIGHT)   &kp LC(T)     &kp LC(W)    &kp LC(LS(T))  &kp INS
+                ___            ___           ___           ___           ___             ___           &kp LA(LEFT) &kp LA(RIGHT)   &kp LC(T)     &kp LC(W)    &kp LC(LS(T))  &kp INS
                 &kp LA(TAB)    &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT       ___           &kp F5       &kp HOME        &kp PG_DN     &kp PG_UP    &kp END        &kp K_CMENU
                 ___            &kp LC(LEFT)  &kp LC(RIGHT) &kp LC(BSPC)  &kp LC(DEL)     ___           ___          &kp LEFT        &kp DOWN      &kp UP       &kp RIGHT      &kp DEL
-                ___            ___           ___           ___           ___             ___           &kp LC(A)    &kp LC(S)       &kp LC(H)     &kp LC(FSLH) &kp LS(TAB)    ___
+                ___            &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &kp LC(Y)     &kp LC(A)    &kp LC(S)       &kp LC(H)     &kp LC(FSLH) &kp LS(TAB)    ___
                                                             ___                       ___           ___          ___             ___           ___
             >;
         };
@@ -146,10 +146,10 @@
             // Overrides only the keys whose modifier differs on macOS.
             // Cmd+Shift+Z is Mac redo. Word motion uses Opt instead of Ctrl.
             bindings = <
-                ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(LBKT) &kp LG(RBKT)    &kp LG(T)     &kp LG(W)    &kp LG(LS(T))  ___
+                ___            ___           ___           ___           ___             ___           &kp LG(LBKT) &kp LG(RBKT)    &kp LG(T)     &kp LG(W)    &kp LG(LS(T))  ___
                 &kp LG(TAB)    ___           ___           ___           ___             ___           &kp LG(R)    ___             ___           ___          ___            ___
                 ___            &kp LA(LEFT)  &kp LA(RIGHT) &kp LA(BSPC)  &kp LA(DEL)     ___           ___          ___             ___           ___          ___            ___
-                ___            ___           ___           ___           ___             ___           &kp LG(A)    &kp LG(S)       &kp LG(H)     &kp LG(FSLH) ___            ___
+                ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(A)    &kp LG(S)       &kp LG(H)     &kp LG(FSLH) ___            ___
                                                             ___                       ___           ___          ___             ___           ___
             >;
         };

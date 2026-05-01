@@ -3,12 +3,11 @@
 #define MOUSE 9
 #define SNIPE 10
 
-// Right (central) trackball: pointer at effective ~1200 cpi (600 hardware * 2x
-// scaler), drops to raw 600 cpi on the SNIPE layer for precision aiming.
-// zip_temp_layer auto-activates the MOUSE layer for 500ms whenever the ball
-// moves (with a 300ms prior-idle guard so casual typing motion doesn't trip
-// it). zip_ble_report_rate_limit at the base of both listeners is the actual
-// lag fix.
+// Right (central) trackball: pointer at raw 600 cpi, halved to 300 cpi on the
+// SNIPE layer for precision aiming. zip_temp_layer auto-activates the MOUSE
+// layer for 500ms whenever the ball moves (with a 300ms prior-idle guard so
+// casual typing motion doesn't trip it). zip_ble_report_rate_limit at the
+// base of both listeners is the actual lag fix.
 
 &zip_temp_layer {
     require-prior-idle-ms = <300>;
@@ -31,13 +30,15 @@
     device = <&trackball_central>;
     input-processors
         = <&zip_temp_layer MOUSE 500>
-        , <&zip_xy_scaler 3 2>
         , <&zip_ble_report_rate_limit>
         ;
 
     snipe_override {
         layers = <SNIPE>;
-        input-processors = <&zip_ble_report_rate_limit>;
+        input-processors
+            = <&zip_xy_scaler 1 2>
+            , <&zip_ble_report_rate_limit>
+            ;
     };
 };
 

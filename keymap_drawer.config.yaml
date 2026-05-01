@@ -145,7 +145,7 @@ parse_config:
     LEFT_PARENTHESIS: (
     LPAR: (
     RIGHT_PARENTHESIS: )
-    RET: $$mdi:keyboard-return$$
+    RET: Enter
     RPAR: )
     EQUAL: '='
     PLUS: +
@@ -191,10 +191,10 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-    ESC: $$mdi:keyboard-esc$$
-    TAB: $$mdi:keyboard-tab$$
-    SPACE: $$mdi:keyboard-space$$
-    BSPC: $$mdi:backspace$$
+    ESC: Esc
+    TAB: Tab
+    SPACE: Space
+    BSPC: Bksp
     LCTRL: $$mdi:apple-keyboard-control$$
     LALT: $$mdi:apple-keyboard-option$$
     LSHIFT: $$mdi:apple-keyboard-shift$$

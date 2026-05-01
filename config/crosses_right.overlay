@@ -1,11 +1,52 @@
-#define MOUSE 8
+#include <scroll-snap.dtsi>
+
+#define MOUSE 9
+#define SNIPE 10
+
+// Right (central) trackball: pointer at effective ~1200 cpi (600 hardware * 2x
+// scaler), drops to raw 600 cpi on the SNIPE layer for precision aiming.
+// zip_temp_layer auto-activates the MOUSE layer for 500ms whenever the ball
+// moves (with a 300ms prior-idle guard so casual typing motion doesn't trip
+// it). zip_ble_report_rate_limit at the base of both listeners is the actual
+// lag fix.
+
+&zip_temp_layer {
+    require-prior-idle-ms = <300>;
+    // Keep MOUSE alive while you're clicking or holding snipe. Positions are
+    // the click cluster (25-29) and the &mo SNIPE key (36) on the Mouse layer.
+    excluded-positions = <25 26 27 28 29 36>;
+};
+
+&trackball_central {
+    cpi = <600>;
+};
+
+&zip_scroll_snap {
+    require-n-samples = <3>;
+    immediate-snap-threshold = <500>;
+};
 
 &trackball_central_listener {
-    precision_override {
-        layers = <MOUSE>;
-        input-processors
-            = <&zip_xy_scaler 1 4>
-            , <&zip_ble_report_rate_limit>
-            ;
+    status = "okay";
+    device = <&trackball_central>;
+    input-processors
+        = <&zip_temp_layer MOUSE 500>
+        , <&zip_xy_scaler 2 1>
+        , <&zip_ble_report_rate_limit>
+        ;
+
+    snipe_override {
+        layers = <SNIPE>;
+        input-processors = <&zip_ble_report_rate_limit>;
     };
+};
+
+// Left (peripheral) trackball scrolls by default with axis-locking.
+&trackball_peripheral_listener {
+    status = "okay";
+    input-processors
+        = <&zip_xy_to_scroll_mapper>
+        , <&zip_scroll_snap>
+        , <&zip_ble_report_rate_limit>
+        ;
 };

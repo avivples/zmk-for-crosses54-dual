@@ -10,6 +10,12 @@ manifest:
       url-base: https://github.com/SolidAlloy
     - name: efogdev
       url-base: https://github.com/efogdev
+    - name: kot149
+      url-base: https://github.com/kot149
+    - name: oleksandrmaslov
+      url-base: https://github.com/oleksandrmaslov
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -22,5 +28,14 @@ manifest:
     - name: zmk-pmw3610-driver
       remote: efogdev
       revision: f69a66dc2c19ee182f7212513a9a13c46d5dced9
+    - name: zmk-scroll-snap
+      remote: kot149
+      revision: v1
+    - name: zmk-pointing-acceleration
+      remote: oleksandrmaslov
+      revision: main
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
   self:
     path: config

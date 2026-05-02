@@ -1,4 +1,5 @@
 #include <scroll-snap.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 
 #define MOUSE   9
 #define SNIPE   10
@@ -25,6 +26,21 @@
 &zip_scroll_snap {
     require-n-samples = <3>;
     immediate-snap-threshold = <500>;
+};
+
+// Conservative pointer acceleration curve. Used on the left (peripheral)
+// listener BEFORE the scroll mapper so a faster roll produces bigger
+// scroll jumps. Tune by raising max-factor or lowering speed-max if you
+// want bigger fast-scroll, or by raising min-factor (closer to 1000) if
+// slow scrolls feel sluggish.
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    min-factor = <800>;
+    max-factor = <2500>;
+    speed-threshold = <1500>;
+    speed-max = <6000>;
+    acceleration-exponent = <2>;
+    track-remainders;
 };
 
 &trackball_central_listener {
@@ -67,11 +83,13 @@
 };
 
 // Left (peripheral) trackball scrolls by default with axis-locking. SCRSWAP
-// flips it to plain pointer.
+// flips it to plain pointer. pointer_accel runs first so faster ball motion
+// = bigger scroll jumps before the mapper converts the motion into scroll.
 &trackball_peripheral_listener {
     status = "okay";
     input-processors
-        = <&zip_xy_to_scroll_mapper>
+        = <&pointer_accel>
+        , <&zip_xy_to_scroll_mapper>
         , <&zip_scroll_snap>
         , <&zip_ble_report_rate_limit>
         ;

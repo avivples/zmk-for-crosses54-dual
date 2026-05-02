@@ -317,8 +317,8 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      ___          ___            ___          ___         ___            ___
-                ___            &mo SNIPE     ___           &shift_click  &ctrl_click    ___           ___          ___            ___          ___         ___            ___
-                                                            ___                       &mo SCROLL    &mo MOUSE    ___             ___           ___
+                ___            &mo SNIPE     ___           &shift_click  &ctrl_click    ___           ___          ___            &ctrl_click  &shift_click &mkp MCLK      ___
+                                                            ___                       &mo SCROLL    &mo MOUSE    &mkp LCLK       &mkp RCLK     &tog SCROLL
             >;
         };
 
@@ -372,7 +372,7 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            ___           ___           ___           &cmd_click     ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           &cmd_click     ___           ___          ___            &cmd_click   ___         ___            ___
                                                             ___                       ___           ___          ___             ___           ___
             >;
         };

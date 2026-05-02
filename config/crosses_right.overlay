@@ -1,7 +1,9 @@
 #include <scroll-snap.dtsi>
 
-#define MOUSE 9
-#define SNIPE 10
+#define MOUSE   9
+#define SNIPE   10
+#define SCRSWAP 13
+#define SCROLL  14
 
 // Right (central) trackball: pointer at raw 600 cpi, halved to 300 cpi on the
 // SNIPE layer for precision aiming. zip_temp_layer auto-activates the MOUSE
@@ -17,7 +19,7 @@
 };
 
 &trackball_central {
-    cpi = <600>;
+    cpi = <400>;
 };
 
 &zip_scroll_snap {
@@ -29,7 +31,7 @@
     status = "okay";
     device = <&trackball_central>;
     input-processors
-        = <&zip_temp_layer MOUSE 500>
+        = <&zip_temp_layer MOUSE 1500>
         , <&zip_ble_report_rate_limit>
         ;
 
@@ -40,9 +42,32 @@
             , <&zip_ble_report_rate_limit>
             ;
     };
+
+    // SCRSWAP toggle on Adjust flips ball roles: central becomes scroll, with
+    // axis-locking like the peripheral default.
+    scroll_swap_override {
+        layers = <SCRSWAP>;
+        input-processors
+            = <&zip_xy_to_scroll_mapper>
+            , <&zip_scroll_snap>
+            , <&zip_ble_report_rate_limit>
+            ;
+    };
+
+    // Held momentary: hold the middle left thumb on the Mouse layer to make
+    // the central ball scroll for as long as the key is held.
+    momentary_scroll_override {
+        layers = <SCROLL>;
+        input-processors
+            = <&zip_xy_to_scroll_mapper>
+            , <&zip_scroll_snap>
+            , <&zip_ble_report_rate_limit>
+            ;
+    };
 };
 
-// Left (peripheral) trackball scrolls by default with axis-locking.
+// Left (peripheral) trackball scrolls by default with axis-locking. SCRSWAP
+// flips it to plain pointer.
 &trackball_peripheral_listener {
     status = "okay";
     input-processors
@@ -50,4 +75,9 @@
         , <&zip_scroll_snap>
         , <&zip_ble_report_rate_limit>
         ;
+
+    pointer_swap_override {
+        layers = <SCRSWAP>;
+        input-processors = <&zip_ble_report_rate_limit>;
+    };
 };

@@ -17,8 +17,9 @@
 #define SNIPE    10
 #define CODE     11
 #define MAC      12
-#define SCRSWAP  13
-#define SCROLL   14
+#define SCRSWAP    13
+#define SCROLL     14
+#define MAC_MOUSE  15
 
 #define ___ &trans
 #define XXX &none
@@ -83,6 +84,39 @@
         };
     };
 
+    macros {
+        // Modifier-held mouse clicks for the Mouse layer. The macro presses
+        // the modifier, taps left click, releases the modifier so OS sees a
+        // proper Ctrl-click / Shift-click / Cmd-click event.
+        ctrl_click: ctrl_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &mkp LCLK>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+        shift_click: shift_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &mkp LCLK>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+        cmd_click: cmd_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &mkp LCLK>
+                , <&macro_release &kp LGUI>
+                ;
+        };
+    };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
         // While MAC mode is toggled on, holding NAV brings up the Mac-flavored
@@ -91,17 +125,66 @@
             if-layers = <NAV MAC>;
             then-layer = <MAC_NAV>;
         };
+        // While MAC mode is toggled, the Mouse layer's modifier-click macros
+        // swap to use Cmd instead of Ctrl.
+        mac_mouse_overlay {
+            if-layers = <MOUSE MAC>;
+            then-layer = <MAC_MOUSE>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
-        // Z + / (bottom-row diagonal corners) toggles MAC mode. Hard to hit
-        // by accident, easy on purpose. Restricted to alpha layers so it
-        // doesn't fire when Z/Slash positions hold something else.
+        // urob-style: short timeout (~30ms) + require-prior-idle (150ms) so
+        // the combo only fires when you've been idle for a moment, not in
+        // the middle of a fast roll. Layer-restricted to base alphas.
+
+        // MAC toggle: Z + / (bottom-row diagonal corners). Deliberate.
         combo_mac_toggle {
             timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
             key-positions = <37 46>;
             bindings = <&tog MAC>;
+            layers = <CLMK QWERTY>;
+        };
+        // Parens on the right home row: N+E and E+I. Fires Ctrl/Cmd-correct
+        // characters via &kp LPAR/RPAR (these are scancodes, not modifier
+        // shortcuts, so they work the same on Win and Mac).
+        combo_lpar {
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            key-positions = <31 32>;
+            bindings = <&kp LPAR>;
+            layers = <CLMK QWERTY>;
+        };
+        combo_rpar {
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            key-positions = <32 33>;
+            bindings = <&kp RPAR>;
+            layers = <CLMK QWERTY>;
+        };
+        // Cut/Copy/Paste on the left bottom row, urob-style. These fire
+        // Ctrl-prefixed shortcuts; on Mac, use the MacNav layer instead.
+        combo_copy {
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            key-positions = <38 39>;
+            bindings = <&kp LC(C)>;
+            layers = <CLMK QWERTY>;
+        };
+        combo_paste {
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            key-positions = <37 38>;
+            bindings = <&kp LC(V)>;
+            layers = <CLMK QWERTY>;
+        };
+        combo_cut {
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            key-positions = <37 39>;
+            bindings = <&kp LC(X)>;
             layers = <CLMK QWERTY>;
         };
     };
@@ -115,7 +198,7 @@
             display-name = "Clmk";
             bindings = <
                 &kp GRAVE      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7          &kp N8        &kp N9       &kp N0         &kp EQUAL
-                &kp ESC        &kp Q         &kp W         &kp F         &kp P           &kp B         &kp J        &kp L           &kp U         &kp Y        &kp SEMI       ___
+                &kp ESC        &kp Q         &kp W         &kp F         &kp P           &kp B         &kp J        &kp L           &kp U         &kp Y        &kp SEMI       &kp BSLH
                 &magic_shift LSHFT LSHFT &hml LGUI A &hml LALT R &hml LCTRL S &hml LSHFT T &kp G        &kp M        &hmr RSHFT N    &hmr RCTRL E  &hmr RALT I  &hmr RGUI O    &kp SQT
                 &caps_word     &kp Z         &kp X         &kp C         &kp D           &kp V         &kp K        &kp H           &kp COMMA     &kp DOT      &kp FSLH       &kp DEL
                                                             &mo MOUSE                   &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo ADJUST
@@ -126,7 +209,7 @@
             display-name = "Qwerty";
             bindings = <
                 &kp GRAVE      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7          &kp N8        &kp N9       &kp N0         &kp EQUAL
-                &kp ESC        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U           &kp I         &kp O        &kp P          ___
+                &kp ESC        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U           &kp I         &kp O        &kp P          &kp BSLH
                 &magic_shift LSHFT LSHFT &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H        &hmr RSHFT J    &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI &kp SQT
                 &caps_word     &kp Z         &kp X         &kp C         &kp V           &kp B         &kp N        &kp M           &kp COMMA     &kp DOT      &kp FSLH       &kp DEL
                                                             &mo MOUSE                   &lt NAV SPACE &lt FN TAB   &lt SYMBOL RET  &lt NUMBER BSPC &mo ADJUST
@@ -156,7 +239,7 @@
             bindings = <
                 ___            ___           ___           ___           ___             ___           &kp LG(LBKT) &kp LG(RBKT)    &kp LG(N)     &kp LG(LS(N)) &kp LC(TAB)   ___
                 &kp LG(TAB)    ___           ___           ___           ___             ___           &kp LG(R)    ___             ___           ___          &kp LG(L)      ___
-                ___            &kp LA(LEFT)  &kp LA(RIGHT) &kp LA(BSPC)  &kp LA(DEL)     ___           ___          ___             ___           ___          ___            ___
+                &kp LG(UP)     &kp LG(LEFT)  &kp LG(RIGHT) &kp LA(BSPC)  &kp LA(DEL)     ___           ___          ___             ___           ___          ___            ___
                 ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(A)    &kp LG(S)       &kp LG(F)     &kp LG(FSLH) ___            ___
                                                             ___                       ___           ___          &kp LG(T)       &kp LG(LS(T)) &kp LG(W)
             >;
@@ -234,8 +317,8 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      ___          ___            ___          ___         ___            ___
-                &mo SNIPE      ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                                                            ___                       &mo SCROLL    ___          ___             ___           ___
+                ___            &mo SNIPE     ___           &shift_click  &ctrl_click    ___           ___          ___            ___          ___         ___            ___
+                                                            ___                       &mo SCROLL    ___          ___             ___           &mo MOUSE
             >;
         };
 
@@ -276,6 +359,20 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                                                            ___                       ___           ___          ___             ___           ___
+            >;
+        };
+
+        mac_mouse_layer {
+            display-name = "MacMouse";
+            // Conditional overlay (MOUSE + MAC). Replaces the Ctrl-click
+            // macro with the Cmd-click macro. Shift+click is the same on
+            // both OSes so falls through.
+            bindings = <
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           &cmd_click     ___           ___          ___            ___          ___         ___            ___
                                                             ___                       ___           ___          ___             ___           ___
             >;
         };

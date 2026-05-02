@@ -139,8 +139,8 @@
             // Row 2 right is the wider nav cluster (Home/PgDn/PgUp/End).
             bindings = <
                 ___            ___           ___           ___           ___             ___           &kp LA(LEFT) &kp LA(RIGHT)   &kp LC(N)     &kp LC(LS(N)) &kp LC(TAB)   &kp INS
-                &kp LA(TAB)    &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT       ___           &kp F5       &kp HOME        &kp PG_DN     &kp PG_UP    &kp END        &kp K_CMENU
-                ___            &kp LC(LEFT)  &kp LC(RIGHT) &kp LC(BSPC)  &kp LC(DEL)     ___           ___          &kp LEFT        &kp DOWN      &kp UP       &kp RIGHT      &kp DEL
+                &kp LA(TAB)    &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT       ___           &kp F5       &kp HOME        &kp UP        &kp END      &kp LC(L)      &kp K_CMENU
+                ___            &kp LC(LEFT)  &kp LC(RIGHT) &kp LC(BSPC)  &kp LC(DEL)     ___           &kp PG_UP    &kp LEFT        &kp DOWN      &kp RIGHT    &kp PG_DN      &kp DEL
                 ___            &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)       &kp LC(Y)     &kp LC(A)    &kp LC(S)       &kp LC(F)     &kp LC(FSLH) &kp LS(TAB)    ___
                                                             ___                       ___           ___          &kp LC(T)       &kp LC(LS(T)) &kp LC(W)
             >;
@@ -153,7 +153,7 @@
             // Cmd+Shift+Z is Mac redo. Word motion uses Opt instead of Ctrl.
             bindings = <
                 ___            ___           ___           ___           ___             ___           &kp LG(LBKT) &kp LG(RBKT)    &kp LG(N)     &kp LG(LS(N)) &kp LC(TAB)   ___
-                &kp LG(TAB)    ___           ___           ___           ___             ___           &kp LG(R)    ___             ___           ___          ___            ___
+                &kp LG(TAB)    ___           ___           ___           ___             ___           &kp LG(R)    ___             ___           ___          &kp LG(L)      ___
                 ___            &kp LA(LEFT)  &kp LA(RIGHT) &kp LA(BSPC)  &kp LA(DEL)     ___           ___          ___             ___           ___          ___            ___
                 ___            &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(LS(Z)) &kp LG(A)    &kp LG(S)       &kp LG(F)     &kp LG(FSLH) ___            ___
                                                             ___                       ___           ___          &kp LG(T)       &kp LG(LS(T)) &kp LG(W)
@@ -166,8 +166,8 @@
                 ___            &kp LBKT      &kp N7        &kp N8        &kp N9          &kp RBKT      ___          ___            ___          ___         ___            ___
                 ___            &kp SEMI      &kp N4        &kp N5        &kp N6          &kp EQUAL     ___          &kp EQUAL      &kp DOT      &kp COMMA   &kp PRCNT      ___
                 ___            &kp GRAVE     &kp N1        &kp N2        &kp N3          &kp BSLH      ___          &kp PLUS       &kp MINUS    &kp ASTRK   &kp FSLH       ___
-                ___            ___           ___           &kp DOT       &kp N0          &kp MINUS     ___          ___            ___          ___         ___            ___
-                                                            ___                       ___           ___          ___             ___           ___
+                ___            ___           ___           ___           ___             ___           &kp LSHFT    &kp LCTRL      &kp LALT     &kp LGUI    ___            ___
+                                                            &kp DOT                   &kp N0        &kp MINUS    ___             ___           ___
             >;
         };
 
@@ -177,8 +177,8 @@
                 ___            &kp LBRC      &kp AMPS      &kp ASTRK     &kp LPAR        &kp RBRC      ___          ___            ___          ___         ___            ___
                 ___            &kp COLON     &kp DLLR      &kp PRCNT     &kp CARET       &kp PLUS      ___          &kp RSHFT      &kp RCTRL    &kp RALT    &kp RGUI       ___
                 ___            &kp TILDE     &kp EXCL      &kp AT        &kp HASH        &kp PIPE      ___          ___            ___          ___         ___            ___
-                ___            ___           ___           &kp LPAR      &kp RPAR        &kp UNDER     ___          ___            ___          ___         ___            ___
-                                                            ___                       ___           ___          ___             ___           ___
+                ___            ___           ___           ___           ___             ___           ___          ___            ___          ___         ___            ___
+                                                            &kp LPAR                  &kp RPAR      &kp UNDER    ___             ___           ___
             >;
         };
 

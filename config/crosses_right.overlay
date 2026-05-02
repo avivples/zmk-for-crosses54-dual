@@ -60,22 +60,24 @@
     };
 
     // SCRSWAP toggle on Adjust flips ball roles: central becomes scroll, with
-    // axis-locking like the peripheral default.
+    // axis-locking + the same scroll-acceleration curve as the peripheral.
     scroll_swap_override {
         layers = <SCRSWAP>;
         input-processors
-            = <&zip_xy_to_scroll_mapper>
+            = <&pointer_accel>
+            , <&zip_xy_to_scroll_mapper>
             , <&zip_scroll_snap>
             , <&zip_ble_report_rate_limit>
             ;
     };
 
-    // Held momentary: hold the middle left thumb on the Mouse layer to make
-    // the central ball scroll for as long as the key is held.
+    // Held momentary: hold the left inner thumb on the Mouse layer to make
+    // the central ball scroll for as long as the key is held. Same accel.
     momentary_scroll_override {
         layers = <SCROLL>;
         input-processors
-            = <&zip_xy_to_scroll_mapper>
+            = <&pointer_accel>
+            , <&zip_xy_to_scroll_mapper>
             , <&zip_scroll_snap>
             , <&zip_ble_report_rate_limit>
             ;

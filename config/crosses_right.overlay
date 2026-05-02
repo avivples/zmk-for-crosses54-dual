@@ -47,7 +47,7 @@
     status = "okay";
     device = <&trackball_central>;
     input-processors
-        = <&zip_temp_layer MOUSE 1500>
+        = <&zip_temp_layer MOUSE 1000>
         , <&zip_ble_report_rate_limit>
         ;
 

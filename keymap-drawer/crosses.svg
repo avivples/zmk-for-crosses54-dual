@@ -3119,11 +3119,12 @@ rect.held, rect.combo.held {
 <a href="#ScrSwap">
 <text x="0" y="-4" class="key tap layer-activator">ScrSwap</text>
 </a></g>
-<g transform="translate(330, 252)" class="key trans keypos-50">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
-<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
-<use href="#mdi:transfer" xlink:href="#mdi:transfer" x="-11" y="-15" height="22" width="22.0" class="key trans tap glyph mdi:transfer"/>
-</g>
+<g transform="translate(330, 252)" class="key keypos-50">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
+<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
+<a href="#Mouse">
+<text x="0" y="-4" class="key tap layer-activator">Mouse</text>
+</a></g>
 <g transform="translate(420, 252)" class="key trans keypos-51">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
@@ -3134,12 +3135,11 @@ rect.held, rect.combo.held {
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
 <use href="#mdi:transfer" xlink:href="#mdi:transfer" x="-11" y="-15" height="22" width="22.0" class="key trans tap glyph mdi:transfer"/>
 </g>
-<g transform="translate(540, 252)" class="key keypos-53">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
-<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
-<a href="#Mouse">
-<text x="0" y="-4" class="key tap layer-activator">Mouse</text>
-</a></g>
+<g transform="translate(540, 252)" class="key trans keypos-53">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
+<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
+<use href="#mdi:transfer" xlink:href="#mdi:transfer" x="-11" y="-15" height="22" width="22.0" class="key trans tap glyph mdi:transfer"/>
+</g>
 </g>
 </g>
 <g transform="translate(30, 3360)" class="layer-Snipe">

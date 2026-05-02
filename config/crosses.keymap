@@ -318,7 +318,7 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      ___          ___            ___          ___         ___            ___
                 ___            &mo SNIPE     ___           &shift_click  &ctrl_click    ___           ___          ___            ___          ___         ___            ___
-                                                            ___                       &mo SCROLL    ___          ___             ___           &mo MOUSE
+                                                            ___                       &mo SCROLL    &mo MOUSE    ___             ___           ___
             >;
         };
 

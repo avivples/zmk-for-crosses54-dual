@@ -438,10 +438,9 @@ rect.held, rect.combo.held {
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
 <use href="#mdi:transfer" xlink:href="#mdi:transfer" x="-11" y="-15" height="22" width="22.0" class="key trans tap glyph mdi:transfer"/>
 </g>
-<g transform="translate(210, 252)" class="key trans keypos-48">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
-<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key trans"/>
-<use href="#mdi:transfer" xlink:href="#mdi:transfer" x="-11" y="-15" height="22" width="22.0" class="key trans tap glyph mdi:transfer"/>
+<g transform="translate(210, 252)" class="key held keypos-48">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key held side"/>
+<rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key held"/>
 </g>
 <g transform="translate(270, 252)" class="key trans keypos-49">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>

@@ -101,6 +101,9 @@
 
     pointer_swap_override {
         layers = <SCRSWAP>;
-        input-processors = <&zip_ble_report_rate_limit>;
+        input-processors
+            = <&zip_temp_layer MOUSE 500>
+            , <&zip_ble_report_rate_limit>
+            ;
     };
 };

@@ -386,19 +386,6 @@
             >;
         };
 
-        mac_mouse_layer {
-            display-name = "MacMouse";
-            // Conditional overlay (MOUSE + MAC). Replaces Ctrl browser/edit
-            // shortcuts with Cmd versions on the mirrored bottom row.
-            bindings = <
-                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            &kp LG(C)     &kp LG(V)     &kp LG(T)     &kp LG(LS(T))  &kp LG(W)     &kp LG(W)    &kp LG(LS(T))  &kp LG(T)    &kp LG(V)   &kp LG(C)     ___
-                                                            ___                       ___           ___          ___             ___           ___
-            >;
-        };
-
         scrswap_layer {
             display-name = "ScrSwap";
             // Toggle flag layer. Activates the scroll_swap_override on the
@@ -423,6 +410,19 @@
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                                                            ___                       ___           ___          ___             ___           ___
+            >;
+        };
+
+        mac_mouse_layer {
+            display-name = "MacMouse";
+            // Conditional overlay (MOUSE + MAC). Replaces Ctrl browser/edit
+            // shortcuts with Cmd versions on the mirrored bottom row.
+            bindings = <
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            &kp LG(C)     &kp LG(V)     &kp LG(T)     &kp LG(LS(T))  &kp LG(W)     &kp LG(W)    &kp LG(LS(T))  &kp LG(T)    &kp LG(V)   &kp LG(C)     ___
                                                             ___                       ___           ___          ___             ___           ___
             >;
         };

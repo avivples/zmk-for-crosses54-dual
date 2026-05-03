@@ -1,0 +1,5 @@
+// Send raw left-trackball X/Y over split. The right/central half decides
+// whether that should be scroll or pointer, so SCRSWAP can actually flip it.
+&trackball_peripheral_split {
+    input-processors = <&zip_ble_report_rate_limit>;
+};

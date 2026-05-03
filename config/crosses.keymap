@@ -347,8 +347,8 @@
 
         snipe_layer {
             display-name = "Snipe";
-            // Activates the snipe override in the right overlay, dropping the
-            // central trackball back to raw 600 cpi. Clicks fall through.
+            // Activates the snipe override in the right overlay, halving the
+            // central trackball to 200 cpi. Clicks fall through.
             bindings = <
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___

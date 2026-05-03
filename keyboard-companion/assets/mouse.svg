@@ -3,9 +3,6 @@
 <svg id="mdi:apple-keyboard-control">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-apple-keyboard-control" viewBox="0 0 24 24"><path d="M19.78,11.78L18.36,13.19L12,6.83L5.64,13.19L4.22,11.78L12,4L19.78,11.78Z" /></svg>
 </svg>
-<svg id="mdi:apple-keyboard-shift">
-<svg xmlns="http://www.w3.org/2000/svg" id="mdi-apple-keyboard-shift" viewBox="0 0 24 24"><path d="M15,18V12H17.17L12,6.83L6.83,12H9V18H15M12,4L22,14H17V20H7V14H2L12,4Z" /></svg>
-</svg>
 <svg id="mdi:mouse">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-mouse" viewBox="0 0 24 24"><path d="M11,1.07C7.05,1.56 4,4.92 4,9H11M4,15A8,8 0 0,0 12,23A8,8 0 0,0 20,15V11H4M13,1.07V9H20C20,4.92 16.94,1.56 13,1.07Z" /></svg>
 </svg>
@@ -292,7 +289,7 @@ rect.held, rect.combo.held {
 <g transform="translate(270, 84)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<text x="0" y="-4" class="key tap">Shift</text>
 </g>
 <g transform="translate(330, 84)" class="key trans keypos-17">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
@@ -374,7 +371,7 @@ rect.held, rect.combo.held {
 <g transform="translate(480, 140)" class="key keypos-31">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<text x="0" y="-4" class="key tap">Shift</text>
 </g>
 <g transform="translate(540, 140)" class="key trans keypos-32">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans side"/>
@@ -419,7 +416,9 @@ rect.held, rect.combo.held {
 <g transform="translate(270, 196)" class="key keypos-40">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<text x="0" y="-4" class="key tap">
+<tspan x="0" dy="-0.6em">Ctl+</tspan><tspan x="0" dy="1.2em">Shift+T</tspan>
+</text>
 </g>
 <g transform="translate(330, 196)" class="key keypos-41">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
@@ -434,7 +433,9 @@ rect.held, rect.combo.held {
 <g transform="translate(480, 196)" class="key keypos-43">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-22" y="-24" width="44" height="40" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<text x="0" y="-4" class="key tap">
+<tspan x="0" dy="-0.6em">Ctl+</tspan><tspan x="0" dy="1.2em">Shift+T</tspan>
+</text>
 </g>
 <g transform="translate(540, 196)" class="key keypos-44">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key side"/>

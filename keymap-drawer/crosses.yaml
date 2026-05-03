@@ -25,14 +25,14 @@ layers:
   - Y
   - ;
   - \
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: Shift, h: sticky}
   - {t: A, h: LGUI}
   - {t: R, h: '$$mdi:apple-keyboard-option$$'}
   - {t: S, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: T, h: Shift}
   - G
   - M
-  - {t: N, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: N, h: Shift}
   - {t: E, h: '$$mdi:apple-keyboard-control$$'}
   - {t: I, h: '$$mdi:apple-keyboard-option$$'}
   - {t: O, h: RGUI}
@@ -80,14 +80,14 @@ layers:
   - O
   - P
   - \
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: Shift, h: sticky}
   - {t: A, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
   - {t: D, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: F, h: Shift}
   - G
   - H
-  - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: J, h: Shift}
   - {t: K, h: '$$mdi:apple-keyboard-control$$'}
   - {t: L, h: '$$mdi:apple-keyboard-option$$'}
   - {t: ;, h: RGUI}
@@ -120,14 +120,14 @@ layers:
   - Alt+$$mdi:arrow-left-bold$$
   - Alt+$$mdi:arrow-right-bold$$
   - Ctl+N
-  - Ctl+$$mdi:apple-keyboard-shift$$+N
+  - Ctl+Shift+N
   - Ctl+Tab
   - INS
   - Alt+Tab
   - {t: LGUI, h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
+  - {t: Shift, h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:transfer$$', type: trans}
   - F5
   - HOME
@@ -157,13 +157,13 @@ layers:
   - Ctl+S
   - Ctl+F
   - Ctl+/
-  - $$mdi:apple-keyboard-shift$$+Tab
+  - Shift+Tab
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - Ctl+T
-  - Ctl+$$mdi:apple-keyboard-shift$$+T
+  - Ctl+Shift+T
   - Ctl+W
   MacNav:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -175,7 +175,7 @@ layers:
   - Gui+[
   - Gui+]
   - Gui+N
-  - Gui+$$mdi:apple-keyboard-shift$$+N
+  - Gui+Shift+N
   - Ctl+Tab
   - {t: '$$mdi:transfer$$', type: trans}
   - Gui+Tab
@@ -207,7 +207,7 @@ layers:
   - Gui+X
   - Gui+C
   - Gui+V
-  - Gui+$$mdi:apple-keyboard-shift$$+Z
+  - Gui+Shift+Z
   - Gui+A
   - Gui+S
   - Gui+F
@@ -218,7 +218,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - Gui+T
-  - Gui+$$mdi:apple-keyboard-shift$$+T
+  - Gui+Shift+T
   - Gui+W
   Number:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -263,7 +263,7 @@ layers:
   - '2'
   - '3'
   - \
-  - $$mdi:apple-keyboard-shift$$
+  - Shift
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - LGUI
@@ -295,7 +295,7 @@ layers:
   - (
   - '}'
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:apple-keyboard-shift$$
+  - Shift
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - RGUI
@@ -410,7 +410,7 @@ layers:
   - O
   - P
   - Bksp
-  - $$mdi:apple-keyboard-shift$$
+  - Shift
   - A
   - S
   - D
@@ -457,12 +457,12 @@ layers:
   - Gui+E
   - Gui+R
   - Gui+D
-  - Gui+$$mdi:apple-keyboard-shift$$+S
-  - Ctl+$$mdi:apple-keyboard-shift$$+Esc
+  - Gui+Shift+S
+  - Ctl+Shift+Esc
   - Gui+Space
   - Gui+Tab
   - Gui+`
-  - Gui+$$mdi:apple-keyboard-shift$$+4
+  - Gui+Shift+4
   - Gui+Alt+Esc
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:bluetooth-off$$
@@ -512,7 +512,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-shift$$
+  - Shift
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -527,7 +527,7 @@ layers:
   - {t: '$$mdi:mouse-left-click$$', h: left}
   - '&mkp MB5'
   - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-shift$$
+  - Shift
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -536,10 +536,10 @@ layers:
   - Ctl+C
   - Ctl+V
   - Ctl+T
-  - Ctl+$$mdi:apple-keyboard-shift$$+T
+  - Ctl+Shift+T
   - Ctl+W
   - Ctl+W
-  - Ctl+$$mdi:apple-keyboard-shift$$+T
+  - Ctl+Shift+T
   - Ctl+T
   - Ctl+V
   - Ctl+C
@@ -620,12 +620,12 @@ layers:
   - F12
   - {t: '$$mdi:transfer$$', type: trans}
   - Ctl+P
-  - Ctl+$$mdi:apple-keyboard-shift$$+P
+  - Ctl+Shift+P
   - Ctl+`
   - Ctl+/
   - Ctl+B
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:apple-keyboard-shift$$+F12
+  - Shift+F12
   - Ctl+.
   - Ctl+,
   - {t: '$$mdi:transfer$$', type: trans}
@@ -647,7 +647,7 @@ layers:
   - Ctl+N
   - Ctl+T
   - Ctl+F
-  - Ctl+$$mdi:apple-keyboard-shift$$+T
+  - Ctl+Shift+T
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -756,10 +756,10 @@ layers:
   - Gui+C
   - Gui+V
   - Gui+T
-  - Gui+$$mdi:apple-keyboard-shift$$+T
+  - Gui+Shift+T
   - Gui+W
   - Gui+W
-  - Gui+$$mdi:apple-keyboard-shift$$+T
+  - Gui+Shift+T
   - Gui+T
   - Gui+V
   - Gui+C

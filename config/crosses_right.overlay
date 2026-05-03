@@ -1,5 +1,6 @@
 #include <scroll-snap.dtsi>
 #include <behaviors/input_gestures_accel.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 #define MOUSE   9
 #define SNIPE   10
@@ -16,7 +17,7 @@
     require-prior-idle-ms = <150>;
     // Keep MOUSE alive while using any real Mouse-layer binding; otherwise
     // ZMK drops to the previous layer before the key resolves.
-    excluded-positions = <15 16 25 26 27 28 29 30 31 36 37 38 39 40 41 42 43 44 45 46 49 50 51 52 53>;
+    excluded-positions = <15 16 25 26 27 28 29 30 31 36 37 38 39 40 41 42 43 44 45 46 48 49 50 51 52 53>;
 };
 
 &trackball_central {
@@ -66,6 +67,7 @@
         input-processors
             = <&pointer_accel>
             , <&zip_xy_to_scroll_mapper>
+            , <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>
             , <&zip_scroll_snap>
             , <&zip_ble_report_rate_limit>
             ;
@@ -78,6 +80,7 @@
         input-processors
             = <&pointer_accel>
             , <&zip_xy_to_scroll_mapper>
+            , <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>
             , <&zip_scroll_snap>
             , <&zip_ble_report_rate_limit>
             ;

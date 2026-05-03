@@ -104,6 +104,9 @@ parse_config:
     "&mkp RCLK":
       tap: $$mdi:mouse-right-click$$
       hold: "right"
+    "&magic_shift LSHFT LSHFT":
+      tap: Shift
+      hold: sticky
   sticky_label: $$mdi:gesture-tap-hold$$
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -115,8 +118,8 @@ parse_config:
   modifier_fn_map:
     left_ctrl: Ctl
     right_ctrl: Ctl
-    left_shift: $$mdi:apple-keyboard-shift$$
-    right_shift: $$mdi:apple-keyboard-shift$$
+    left_shift: Shift
+    right_shift: Shift
     left_alt: Alt
     right_alt: AltGr
     left_gui: Gui
@@ -197,13 +200,13 @@ parse_config:
     BSPC: Bksp
     LCTRL: $$mdi:apple-keyboard-control$$
     LALT: $$mdi:apple-keyboard-option$$
-    LSHIFT: $$mdi:apple-keyboard-shift$$
-    LSHFT: $$mdi:apple-keyboard-shift$$
+    LSHIFT: Shift
+    LSHFT: Shift
     LCMD: $$mdi:apple-keyboard-command$$
     RCTRL: $$mdi:apple-keyboard-control$$
     RALT: $$mdi:apple-keyboard-option$$
-    RSHIFT: $$mdi:apple-keyboard-shift$$
-    RSHFT: $$mdi:apple-keyboard-shift$$
+    RSHIFT: Shift
+    RSHFT: Shift
     RCMD: $$mdi:apple-keyboard-command$$
     UP: $$mdi:arrow-up-bold$$
     DOWN: $$mdi:arrow-down-bold$$

@@ -16,8 +16,6 @@ manifest:
       url-base: https://github.com/oleksandrmaslov
     - name: urob
       url-base: https://github.com/urob
-    - name: maatthc
-      url-base: https://github.com/maatthc
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -38,9 +36,6 @@ manifest:
       revision: main
     - name: zmk-auto-layer
       remote: urob
-      revision: main
-    - name: zmk-feature-appcompanion
-      remote: maatthc
       revision: main
   self:
     path: config

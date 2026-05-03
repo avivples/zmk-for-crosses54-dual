@@ -1,5 +1,6 @@
 #include <scroll-snap.dtsi>
 #include <behaviors/input_gestures_accel.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/input_transform.h>
 
 #define MOUSE   9
@@ -27,6 +28,20 @@
 &zip_scroll_snap {
     require-n-samples = <3>;
     immediate-snap-threshold = <500>;
+};
+
+/ {
+    // Fallback for SCRSWAP: if the left half still sends pre-mapped scroll
+    // wheel events, turn them back into pointer X/Y on the central half.
+    zip_scroll_to_xy_mapper: zip_scroll_to_xy_mapper {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        map
+            = <INPUT_REL_WHEEL INPUT_REL_Y>
+            , <INPUT_REL_HWHEEL INPUT_REL_X>
+            ;
+    };
 };
 
 // Conservative pointer acceleration curve. Used on the left (peripheral)
@@ -102,7 +117,8 @@
     pointer_swap_override {
         layers = <SCRSWAP>;
         input-processors
-            = <&zip_temp_layer MOUSE 500>
+            = <&zip_scroll_to_xy_mapper>
+            , <&zip_temp_layer MOUSE 500>
             , <&zip_ble_report_rate_limit>
             ;
     };

@@ -22,6 +22,8 @@ OUT_DIR = ROOT / "keyboard-companion"
 ASSETS_DIR = OUT_DIR / "assets"
 CONFIG_INI = OUT_DIR / "config.ini"
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+BLE_VENDOR_ID = "0xA241"
+BLE_PRODUCT_ID = "0xC054"
 
 
 def slugify(name: str) -> str:
@@ -254,8 +256,8 @@ def write_companion_config(layer_pngs: list[str]) -> None:
         "usage": "0x61",
     }
     config["KEYBOARD_BLE_HID"] = {
-        "vendor_id": "0x1D50",
-        "product_id": "0x615E",
+        "vendor_id": BLE_VENDOR_ID,
+        "product_id": BLE_PRODUCT_ID,
     }
     config["LAYER_IMAGES"] = {
         f"layer_{index}": file_name for index, file_name in enumerate(layer_pngs)

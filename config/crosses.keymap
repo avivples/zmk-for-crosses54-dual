@@ -329,15 +329,17 @@
         mouse_layer {
             display-name = "Mouse";
             // Held momentarily via &mo MOUSE on the left outer thumb, or
-            // auto-activated by trackball motion (zip_temp_layer, 1000ms
-            // timeout, 300ms typing guard). Click cluster on the left half.
+            // auto-activated by trackball motion (zip_temp_layer, 500ms
+            // timeout, 150ms typing guard). Click cluster on the left half.
+            // Ctrl/Shift are available above MCLK/LCLK and on the left edge
+            // of the right click row for one-handed modified clicks.
             // Hold &mo SNIPE (left bottom) for precision. Bottom row has
             // mirrored browser/edit shortcuts; hold &mo SCROLL (left middle
             // thumb) to turn the central ball into a scroll wheel.
             bindings = <
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      ___          ___            ___          ___         ___            ___
+                ___            ___           ___           &kp LCTRL     &kp LSHFT      ___           ___          ___            ___          ___         ___            ___
+                ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      &kp LCTRL    &kp LSHFT      ___          ___         ___            ___
                 &mo SNIPE      &kp LC(C)     &kp LC(V)     &kp LC(T)     &kp LC(LS(T))  &kp LC(W)     &kp LC(W)    &kp LC(LS(T))  &kp LC(T)    &kp LC(V)   &kp LC(C)     ___
                                                             ___                       &mo SCROLL    &mo MOUSE    &mkp LCLK       &mkp RCLK     &tog SCROLL
             >;

@@ -16,6 +16,9 @@ CONFIG_ZMK_LAYER_STATUS_BLE_HID=y
 ```
 
 USB uses usage page `0xFF60` and usage `0x61`, matching `config.ini`.
+BLE uses a distinct PnP identity, `0xA241:0xC054`, so the companion app can
+distinguish Crosses from other ZMK boards that still use the default
+`0x1D50:0x615E`.
 
 ## Regenerate assets
 

@@ -6,17 +6,17 @@
 #define SCRSWAP 13
 #define SCROLL  14
 
-// Right (central) trackball: pointer at raw 600 cpi, halved to 300 cpi on the
+// Right (central) trackball: pointer at raw 400 cpi, halved to 200 cpi on the
 // SNIPE layer for precision aiming. zip_temp_layer auto-activates the MOUSE
-// layer for 500ms whenever the ball moves (with a 300ms prior-idle guard so
+// layer for 500ms whenever the ball moves (with a 150ms prior-idle guard so
 // casual typing motion doesn't trip it). zip_ble_report_rate_limit at the
 // base of both listeners is the actual lag fix.
 
 &zip_temp_layer {
-    require-prior-idle-ms = <300>;
-    // Keep MOUSE alive while you're clicking or holding snipe. Positions are
-    // the click cluster (25-29) and the &mo SNIPE key (36) on the Mouse layer.
-    excluded-positions = <25 26 27 28 29 36>;
+    require-prior-idle-ms = <150>;
+    // Keep MOUSE alive while using any real Mouse-layer binding; otherwise
+    // ZMK drops to the previous layer before the key resolves.
+    excluded-positions = <15 16 25 26 27 28 29 30 31 36 37 38 39 40 41 42 43 44 45 46 49 50 51 52 53>;
 };
 
 &trackball_central {
@@ -47,7 +47,7 @@
     status = "okay";
     device = <&trackball_central>;
     input-processors
-        = <&zip_temp_layer MOUSE 1000>
+        = <&zip_temp_layer MOUSE 500>
         , <&zip_ble_report_rate_limit>
         ;
 

@@ -2,6 +2,12 @@
     status = "disabled";
 };
 
+&trackball_central_split {
+    status = "okay";
+    device = <&trackball_central>;
+    input-processors = <&zip_ble_report_rate_limit>;
+};
+
 &trackball_peripheral_listener {
     status = "disabled";
 };

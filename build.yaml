@@ -32,3 +32,6 @@ include:
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_USB=n -DCONFIG_ZMK_POINTING_SMOOTH_SCROLLING=n -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
   - board: nice_nano
     shield: settings_reset
+  - board: xiao_ble/nrf52840
+    shield: settings_reset
+    artifact-name: settings_reset_xiao_ble

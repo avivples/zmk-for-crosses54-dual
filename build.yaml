@@ -8,7 +8,7 @@ include:
     artifact-name: crosses_54_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: xiao_ble//zmk
+  - board: xiao_ble/nrf52840
     shield: crosses_dongle prospector_adapter
     artifact-name: crosses_54_prospector_dongle
     snippet: studio-rpc-usb-uart

@@ -8,21 +8,9 @@
 #define SCRSWAP 13
 #define SCROLL  14
 
-// Right (central) trackball: pointer at raw 400 cpi, halved to 200 cpi on the
-// SNIPE layer for precision aiming. zip_temp_layer auto-activates the MOUSE
-// layer for 500ms whenever the ball moves (with a 150ms prior-idle guard so
-// casual typing motion doesn't trip it). zip_ble_report_rate_limit at the
-// base of both listeners is the actual lag fix.
-
 &zip_temp_layer {
     require-prior-idle-ms = <150>;
-    // Keep MOUSE alive while using any real Mouse-layer binding; otherwise
-    // ZMK drops to the previous layer before the key resolves.
     excluded-positions = <15 16 25 26 27 28 29 30 31 36 37 38 39 40 41 42 43 44 45 46 48 49 50 51 52 53>;
-};
-
-&trackball_central {
-    cpi = <400>;
 };
 
 &zip_scroll_snap {
@@ -31,15 +19,6 @@
 };
 
 / {
-    split_inputs {
-        trackball_central_split: trackball_central_split@1 {
-            compatible = "zmk,input-split";
-            reg = <1>;
-        };
-    };
-
-    // Fallback for SCRSWAP: if the left half still sends pre-mapped scroll
-    // wheel events, turn them back into pointer X/Y on the central half.
     zip_scroll_to_xy_mapper: zip_scroll_to_xy_mapper {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
@@ -51,11 +30,6 @@
     };
 };
 
-// Conservative pointer acceleration curve. Used on the left (peripheral)
-// listener BEFORE the scroll mapper so a faster roll produces bigger
-// scroll jumps. Tune by raising max-factor or lowering speed-max if you
-// want bigger fast-scroll, or by raising min-factor (closer to 1000) if
-// slow scrolls feel sluggish.
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
     min-factor = <800>;
@@ -68,7 +42,6 @@
 
 &trackball_central_listener {
     status = "okay";
-    device = <&trackball_central>;
     input-processors
         = <&zip_temp_layer MOUSE 500>
         , <&zip_ble_report_rate_limit>
@@ -82,8 +55,6 @@
             ;
     };
 
-    // SCRSWAP toggle on Adjust flips ball roles: central becomes scroll, with
-    // axis-locking + the same scroll-acceleration curve as the peripheral.
     scroll_swap_override {
         layers = <SCRSWAP>;
         input-processors
@@ -95,8 +66,6 @@
             ;
     };
 
-    // Held momentary: hold the left inner thumb on the Mouse layer to make
-    // the central ball scroll for as long as the key is held. Same accel.
     momentary_scroll_override {
         layers = <SCROLL>;
         input-processors
@@ -109,14 +78,6 @@
     };
 };
 
-&trackball_central_split {
-    device = <&trackball_central>;
-    input-processors = <&zip_ble_report_rate_limit>;
-};
-
-// Left (peripheral) trackball scrolls by default with axis-locking. SCRSWAP
-// flips it to plain pointer. pointer_accel runs first so faster ball motion
-// = bigger scroll jumps before the mapper converts the motion into scroll.
 &trackball_peripheral_listener {
     status = "okay";
     input-processors

@@ -8,6 +8,15 @@ include:
     artifact-name: crosses_54_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+  - board: xiao_ble//zmk
+    shield: crosses_dongle prospector_adapter
+    artifact-name: crosses_54_prospector_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  - board: nice_nano
+    shield: crosses_right crosses_right_dongle_peripheral
+    artifact-name: crosses_54_right_dongle_peripheral
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_USB=n -DCONFIG_ZMK_POINTING_SMOOTH_SCROLLING=n
   - board: nice_nano
     shield: crosses_left
     artifact-name: crosses_54_left_internal_osc
@@ -17,5 +26,9 @@ include:
     artifact-name: crosses_54_right_internal_osc
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+  - board: nice_nano
+    shield: crosses_right crosses_right_dongle_peripheral
+    artifact-name: crosses_54_right_dongle_peripheral_internal_osc
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_USB=n -DCONFIG_ZMK_POINTING_SMOOTH_SCROLLING=n -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
   - board: nice_nano
     shield: settings_reset

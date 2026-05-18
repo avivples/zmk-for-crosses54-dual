@@ -1,0 +1,9 @@
+if SHIELD_CROSSES_RIGHT_DONGLE_PERIPHERAL
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+endif

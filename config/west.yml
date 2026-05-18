@@ -4,6 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: carrefinho
+      url-base: https://github.com/carrefinho
     - name: Good-Great-Grand-Wonderful
       url-base: https://github.com/Good-Great-Grand-Wonderful
     - name: SolidAlloy
@@ -21,6 +23,9 @@ manifest:
       remote: zmkfirmware
       revision: ac7f75b8591d39aaf3b66b9d26f26c9ed921a009
       import: app/west.yml
+    - name: prospector-zmk-module
+      remote: carrefinho
+      revision: feat/new-status-screens
     - name: gggw-zmk-keebs
       remote: SolidAlloy
       revision: zephyr-4.1

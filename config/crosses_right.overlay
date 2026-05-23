@@ -38,6 +38,19 @@
         };
     };
 
+    pointer_move_accel: pointer_move_accel {
+        compatible = "zmk,input-processor-acceleration";
+        status = "okay";
+        #input-processor-cells = <0>;
+        input-type = <INPUT_EV_REL>;
+        min-factor = <850>;
+        max-factor = <2600>;
+        speed-threshold = <1400>;
+        speed-max = <6000>;
+        acceleration-exponent = <2>;
+        track-remainders;
+    };
+
     // Fallback for SCRSWAP: if the left half still sends pre-mapped scroll
     // wheel events, turn them back into pointer X/Y on the central half.
     zip_scroll_to_xy_mapper: zip_scroll_to_xy_mapper {
@@ -70,7 +83,8 @@
     status = "okay";
     device = <&trackball_central>;
     input-processors
-        = <&zip_temp_layer MOUSE 500>
+        = <&pointer_move_accel>
+        , <&zip_temp_layer MOUSE 500>
         , <&zip_ble_report_rate_limit>
         ;
 
@@ -130,6 +144,7 @@
         layers = <SCRSWAP>;
         input-processors
             = <&zip_scroll_to_xy_mapper>
+            , <&pointer_move_accel>
             , <&zip_temp_layer MOUSE 500>
             , <&zip_ble_report_rate_limit>
             ;

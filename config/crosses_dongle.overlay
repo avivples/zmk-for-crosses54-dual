@@ -81,7 +81,7 @@
 &trackball_peripheral_listener {
     status = "okay";
     input-processors
-        = <&pointer_accel>
+        = <&zip_xy_scaler 1 3>
         , <&zip_xy_to_scroll_mapper>
         , <&zip_scroll_snap>
         , <&zip_ble_report_rate_limit>

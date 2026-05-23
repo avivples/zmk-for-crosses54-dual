@@ -115,12 +115,12 @@
 };
 
 // Left (peripheral) trackball scrolls by default with axis-locking. SCRSWAP
-// flips it to plain pointer. pointer_accel runs first so faster ball motion
-// = bigger scroll jumps before the mapper converts the motion into scroll.
+// flips it to plain pointer. Scale before mapping so the scroll rate stays
+// usable with the raw split trackball motion.
 &trackball_peripheral_listener {
     status = "okay";
     input-processors
-        = <&pointer_accel>
+        = <&zip_xy_scaler 1 3>
         , <&zip_xy_to_scroll_mapper>
         , <&zip_scroll_snap>
         , <&zip_ble_report_rate_limit>

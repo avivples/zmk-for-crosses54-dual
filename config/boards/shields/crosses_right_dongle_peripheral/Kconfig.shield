@@ -1,2 +1,0 @@
-config SHIELD_CROSSES_RIGHT_DONGLE_PERIPHERAL
-    def_bool $(shields_list_contains,crosses_right_dongle_peripheral)

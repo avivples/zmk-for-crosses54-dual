@@ -5,14 +5,16 @@
 
 #define MOUSE   9
 #define SNIPE   10
+#define AUTO_MOUSE 15
 #define SCRSWAP 13
 #define SCROLL  14
 
 // Right (central) trackball: pointer at raw 400 cpi, halved to 200 cpi on the
 // SNIPE layer for precision aiming. zip_temp_layer auto-activates the MOUSE
-// layer for 500ms whenever the ball moves (with a 150ms prior-idle guard so
-// casual typing motion doesn't trip it). zip_ble_report_rate_limit at the
-// base of both listeners is the actual lag fix.
+// keymap for 500ms whenever the ball moves (with a 150ms prior-idle guard so
+// casual typing motion doesn't trip it). It uses AUTO_MOUSE, not MOUSE, so
+// the timeout cannot deactivate a held &mo MOUSE key. zip_ble_report_rate_limit
+// at the base of both listeners is the actual lag fix.
 
 &zip_temp_layer {
     require-prior-idle-ms = <150>;
@@ -84,7 +86,7 @@
     device = <&trackball_central>;
     input-processors
         = <&pointer_move_accel>
-        , <&zip_temp_layer MOUSE 500>
+        , <&zip_temp_layer AUTO_MOUSE 500>
         , <&zip_ble_report_rate_limit>
         ;
 
@@ -145,7 +147,7 @@
         input-processors
             = <&zip_scroll_to_xy_mapper>
             , <&pointer_move_accel>
-            , <&zip_temp_layer MOUSE 500>
+            , <&zip_temp_layer AUTO_MOUSE 500>
             , <&zip_ble_report_rate_limit>
             ;
     };

@@ -19,7 +19,8 @@
 #define MAC      12
 #define SCRSWAP    13
 #define SCROLL     14
-#define MAC_MOUSE  15
+#define AUTO_MOUSE 15
+#define MAC_MOUSE  16
 
 #define ___ &trans
 #define XXX &none
@@ -129,6 +130,10 @@
         // swap to use Cmd instead of Ctrl.
         mac_mouse_overlay {
             if-layers = <MOUSE MAC>;
+            then-layer = <MAC_MOUSE>;
+        };
+        mac_auto_mouse_overlay {
+            if-layers = <AUTO_MOUSE MAC>;
             then-layer = <MAC_MOUSE>;
         };
     };
@@ -308,7 +313,7 @@
                 &kp TAB        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U          &kp I        &kp O       &kp P          &kp BSPC
                 &kp LSHFT      &kp A         &kp S         &kp D         &kp F           &kp G         &kp H        &kp J          &kp K        &kp L       &kp SEMI       &kp SQT
                 &kp LCTRL      &kp Z         &kp X         &kp C         &kp V           &kp B         &kp N        &kp M          &kp COMMA    &kp DOT     &kp FSLH       &tog GAMING
-                                                            &mo MOUSE                 &kp SPACE     &kp TAB      &kp RET        &kp BSPC      &kp LALT
+                                                            &kp LALT                 &kp SPACE     &kp TAB      &kp RET        &kp BSPC      &kp LALT
             >;
         };
 
@@ -329,8 +334,7 @@
         mouse_layer {
             display-name = "Mouse";
             // Held momentarily via &mo MOUSE on the left outer thumb, or
-            // auto-activated by trackball motion (zip_temp_layer, 500ms
-            // timeout, 150ms typing guard). Click cluster on the left half.
+            // toggled from Adjust. Click cluster on the left half.
             // Ctrl/Shift are available above MCLK/LCLK and on the left edge
             // of the right click row for one-handed modified clicks.
             // Hold &mo SNIPE (left bottom) for precision. Bottom row has
@@ -404,13 +408,28 @@
             display-name = "Scroll";
             // Held flag layer triggered by &mo SCROLL on the Mouse layer.
             // Activates the momentary_scroll_override so the central ball
-            // scrolls while the key is held.
+            // scrolls while the key is held. The right thumb toggles this
+            // flag off even if the Mouse layer is no longer active.
             bindings = <
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
                 ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
-                                                            ___                       ___           ___          ___             ___           ___
+                                                            ___                       ___           ___          ___             ___           &tog SCROLL
+            >;
+        };
+
+        auto_mouse_layer {
+            display-name = "AutoMouse";
+            // Trackball-triggered temporary mouse layer. Kept separate from
+            // MOUSE so the temp-layer timeout cannot deactivate a held
+            // &mo MOUSE key.
+            bindings = <
+                ___            ___           ___           ___           ___            ___           ___          ___            ___          ___         ___            ___
+                ___            ___           ___           &kp LCTRL     &kp LSHFT      ___           ___          ___            ___          ___         ___            ___
+                ___            &mkp MB4      &mkp RCLK     &mkp MCLK     &mkp LCLK      &mkp MB5      &kp LCTRL    &kp LSHFT      ___          ___         ___            ___
+                &mo SNIPE      &kp LC(C)     &kp LC(V)     &kp LC(T)     &kp LC(LS(T))  &kp LC(W)     &kp LC(W)    &kp LC(LS(T))  &kp LC(T)    &kp LC(V)   &kp LC(C)     ___
+                                                            ___                       &mo SCROLL    &mo MOUSE    &mkp LCLK       &mkp RCLK     &tog SCROLL
             >;
         };
 

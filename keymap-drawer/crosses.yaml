@@ -49,13 +49,13 @@ layers:
   - .
   - /
   - DEL
-  - Mouse
+  - Mous
   - {t: Space, h: Nav}
   - {t: Tab, h: Fn}
-  - {t: Enter, h: Symbol}
-  - {t: Bksp, h: Number}
-  - Adjust
-  Qwerty:
+  - {t: Enter, h: Sym}
+  - {t: Bksp, h: Num}
+  - Adj
+  Qwrt:
   - '`'
   - '1'
   - '2'
@@ -104,12 +104,12 @@ layers:
   - .
   - /
   - DEL
-  - Mouse
+  - Mous
   - {t: Space, h: Nav}
   - {t: Tab, h: Fn}
-  - {t: Enter, h: Symbol}
-  - {t: Bksp, h: Number}
-  - Adjust
+  - {t: Enter, h: Sym}
+  - {t: Bksp, h: Num}
+  - Adj
   Nav:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -165,7 +165,7 @@ layers:
   - Ctl+T
   - Ctl+Shift+T
   - Ctl+W
-  MacNav:
+  MNav:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -220,7 +220,7 @@ layers:
   - Gui+T
   - Gui+Shift+T
   - Gui+W
-  Number:
+  Num:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -275,7 +275,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  Symbol:
+  Sym:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -385,7 +385,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  Gaming:
+  Game:
   - Esc
   - '1'
   - '2'
@@ -433,14 +433,14 @@ layers:
   - ','
   - .
   - /
-  - {t: Gaming, h: toggle}
+  - {t: Game, h: toggle}
   - $$mdi:apple-keyboard-option$$
   - Space
   - Tab
   - Enter
   - Bksp
   - $$mdi:apple-keyboard-option$$
-  Adjust:
+  Adj:
   - '&bootloader'
   - PSCRN
   - SLCK
@@ -474,8 +474,8 @@ layers:
   - OUT USB
   - OUT BLE
   - {t: Clmk, h: toggle}
-  - {t: Qwerty, h: toggle}
-  - {t: Gaming, h: toggle}
+  - {t: Qwrt, h: toggle}
+  - {t: Game, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -483,8 +483,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: Code, h: toggle}
-  - {t: Mouse, h: toggle}
-  - {t: ScrSwap, h: toggle}
+  - {t: Mous, h: toggle}
+  - {t: Swap, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -495,7 +495,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  Mouse:
+  Mous:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -532,7 +532,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - Snipe
+  - Snip
   - Ctl+C
   - Ctl+V
   - Ctl+T
@@ -545,12 +545,12 @@ layers:
   - Ctl+C
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  - Scroll
-  - Mouse
+  - Scrl
+  - Mous
   - {t: '$$mdi:mouse-left-click$$', h: left}
   - {t: '$$mdi:mouse-right-click$$', h: right}
-  - {t: Scroll, h: toggle}
-  Snipe:
+  - {t: Scrl, h: toggle}
+  Snip:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -715,7 +715,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  ScrSwap:
+  Swap:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -770,7 +770,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  Scroll:
+  Scrl:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -824,8 +824,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: Scroll, h: toggle}
-  AutoMouse:
+  - {t: Scrl, h: toggle}
+  Auto:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -862,7 +862,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - Snipe
+  - Snip
   - Ctl+C
   - Ctl+V
   - Ctl+T
@@ -875,12 +875,12 @@ layers:
   - Ctl+C
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - Scroll
-  - Mouse
+  - Scrl
+  - Mous
   - {t: '$$mdi:mouse-left-click$$', h: left}
   - {t: '$$mdi:mouse-right-click$$', h: right}
-  - {t: Scroll, h: toggle}
-  MacMouse:
+  - {t: Scrl, h: toggle}
+  MMou:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -938,28 +938,28 @@ layers:
 combos:
 - p: [37, 46]
   k: {t: Mac, h: toggle}
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [31, 32]
   k: (
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [32, 33]
   k: )
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [38, 39]
   k: Ctl+C
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [39, 40]
   k: Ctl+V
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [38, 40]
   k: Ctl+X
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [43, 44]
   k: '['
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [44, 45]
   k: ']'
-  l: [Clmk, Qwerty]
+  l: [Clmk, Qwrt]
 - p: [38, 45]
-  k: {t: Gaming, h: toggle}
-  l: [Clmk, Qwerty]
+  k: {t: Game, h: toggle}
+  l: [Clmk, Qwrt]

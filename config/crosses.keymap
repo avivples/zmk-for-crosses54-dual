@@ -232,7 +232,7 @@
         };
 
         qwerty_layer {
-            display-name = "Qwerty";
+            display-name = "Qwrt";
             bindings = <
                 &kp GRAVE      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7          &kp N8        &kp N9       &kp N0         &kp EQUAL
                 &kp ESC        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U           &kp I         &kp O        &kp P          &kp BSLH
@@ -258,7 +258,7 @@
         };
 
         mac_nav_layer {
-            display-name = "MacNav";
+            display-name = "MNav";
             // Conditional overlay; only fires when MAC + NAV are both active.
             // Overrides only the keys whose modifier differs on macOS.
             // Cmd+Shift+Z is Mac redo. Word motion uses Opt instead of Ctrl.
@@ -272,7 +272,7 @@
         };
 
         number_layer {
-            display-name = "Number";
+            display-name = "Num";
             bindings = <
                 ___            ___           ___           ___           ___             ___           ___          ___            ___          ___         ___            ___
                 ___            &kp LBKT      &kp N7        &kp N8        &kp N9          &kp RBKT      ___          &kp EQUAL      &kp DOT      &kp COMMA   &kp PRCNT      ___
@@ -283,7 +283,7 @@
         };
 
         symbol_layer {
-            display-name = "Symbol";
+            display-name = "Sym";
             bindings = <
                 ___            ___           ___           ___           ___             ___           ___          ___            ___          ___         ___            ___
                 ___            &kp LBRC      &kp AMPS      &kp ASTRK     &kp LPAR        &kp RBRC      ___          &kp RSHFT      &kp RCTRL    &kp RALT    &kp RGUI       ___
@@ -307,7 +307,7 @@
         };
 
         gaming_layer {
-            display-name = "Gaming";
+            display-name = "Game";
             bindings = <
                 &kp ESC        &kp N1        &kp N2        &kp N3        &kp N4          &kp N5        &kp N6       &kp N7         &kp N8       &kp N9      &kp N0         &kp GRAVE
                 &kp TAB        &kp Q         &kp W         &kp E         &kp R           &kp T         &kp Y        &kp U          &kp I        &kp O       &kp P          &kp BSPC
@@ -318,7 +318,7 @@
         };
 
         adjust_layer {
-            display-name = "Adjust";
+            display-name = "Adj";
             // Reached by chording NAV (left thumb) + SYMBOL (right thumb).
             // Row 2 OS shortcuts are Windows-flavored; swap MAC on (row 1
             // col 11) for the Mac overlay (currently only adjusts Nav).
@@ -332,7 +332,7 @@
         };
 
         mouse_layer {
-            display-name = "Mouse";
+            display-name = "Mous";
             // Held momentarily via &mo MOUSE on the left outer thumb, or
             // toggled from Adjust. Click cluster on the left half.
             // Ctrl/Shift are available above MCLK/LCLK and on the left edge
@@ -350,7 +350,7 @@
         };
 
         snipe_layer {
-            display-name = "Snipe";
+            display-name = "Snip";
             // Activates the snipe override in the right overlay, halving the
             // central trackball to 200 cpi. Clicks fall through.
             bindings = <
@@ -391,7 +391,7 @@
         };
 
         scrswap_layer {
-            display-name = "ScrSwap";
+            display-name = "Swap";
             // Toggle flag layer. Activates the scroll_swap_override on the
             // central listener and the pointer_swap_override on the peripheral
             // listener: right ball scrolls, left ball points.
@@ -405,7 +405,7 @@
         };
 
         scroll_layer {
-            display-name = "Scroll";
+            display-name = "Scrl";
             // Held flag layer triggered by &mo SCROLL on the Mouse layer.
             // Activates the momentary_scroll_override so the central ball
             // scrolls while the key is held. The right thumb toggles this
@@ -420,7 +420,7 @@
         };
 
         auto_mouse_layer {
-            display-name = "AutoMouse";
+            display-name = "Auto";
             // Trackball-triggered temporary mouse layer. Kept separate from
             // MOUSE so the temp-layer timeout cannot deactivate a held
             // &mo MOUSE key.
@@ -434,7 +434,7 @@
         };
 
         mac_mouse_layer {
-            display-name = "MacMouse";
+            display-name = "MMou";
             // Conditional overlay (MOUSE + MAC). Replaces Ctrl browser/edit
             // shortcuts with Cmd versions on the mirrored bottom row.
             bindings = <

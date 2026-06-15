@@ -544,7 +544,7 @@ layers:
   - Ctl+V
   - Ctl+C
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - {t: Auto, h: toggle, type: held}
   - Scrl
   - Mous
   - {t: '$$mdi:mouse-left-click$$', h: left}
